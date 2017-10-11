@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^((.*)\.)?(angular\.pl)$ [NC]
+RewriteRule ^ https://angular.io/ [R=302,L,NE]
