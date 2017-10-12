@@ -1,0 +1,1428 @@
+<head>
+    <meta charset="utf-8">
+    <title>Angular</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/images/favicons/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="assets/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png">
+    <!-- NOTE: These need to be kept in sync with `ngsw-manifest.json`. -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><!-- -->
+    <link rel="manifest" href="pwa-manifest.json">
+    <meta name="theme-color" content="#1976d2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent"><!-- Google Analytics -->
+    <script>window.ga = window.ga || function () {
+            (ga.q = ga.q || []).push(arguments)
+        };
+    ga.l = +new Date;</script>
+    <style>@media print {
+        #ghostery-purple-box {
+            display: none !important
+        }
+    }</style>
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><!-- End Google Analytics -->
+    <script>if (window.document.documentMode) {
+        // polyfill IE11 in a blocking way
+        var s = document.createElement('script');
+        s.src = 'generated/ie-polyfills.min.js';
+        document.head.appendChild(s);
+    } else if (!Object.assign) {
+        // polyfill other non-evergreen browsers in a blocking way
+        var polyfillUrl = "https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find&flags=gated&unknown=polyfill";
+
+        // send a blocking XHR to fetch the polyfill
+        // then append it to the document so that its eval-ed synchronously
+        // this is required because the method used for IE is not reliable with other non-evergreen browsers
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", function () {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            var code = this.responseText;
+            s.appendChild(document.createTextNode(code));
+            document.head.appendChild(s);
+        });
+        xhr.open("GET", polyfillUrl, false);
+        xhr.send();
+    }</script>
+    <link href="styles.002ce20e5c98bc8bb12d.bundle.css" rel="stylesheet">
+    <style>.mat-toolbar {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 16px;
+        flex-direction: column
+    }
+
+    .mat-toolbar .mat-toolbar-row {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        white-space: nowrap
+    }
+
+    .mat-toolbar {
+        min-height: 64px
+    }
+
+    .mat-toolbar-row {
+        height: 64px
+    }
+
+    @media (max-width: 600px) {
+        .mat-toolbar {
+            min-height: 56px
+        }
+
+        .mat-toolbar-row {
+            height: 56px
+        }
+    }</style>
+    <style>.mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+        box-sizing: border-box;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px
+    }
+
+    [disabled].mat-button, [disabled].mat-fab, [disabled].mat-icon-button, [disabled].mat-mini-fab, [disabled].mat-raised-button {
+        cursor: default
+    }
+
+    .cdk-keyboard-focused.mat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-button::-moz-focus-inner, .mat-fab::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-mini-fab::-moz-focus-inner, .mat-raised-button::-moz-focus-inner {
+        border: 0
+    }
+
+    .mat-fab, .mat-mini-fab, .mat-raised-button {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .mat-fab:not([disabled]):active, .mat-mini-fab:not([disabled]):active, .mat-raised-button:not([disabled]):active {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    [disabled].mat-fab, [disabled].mat-mini-fab, [disabled].mat-raised-button {
+        box-shadow: none
+    }
+
+    .mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
+        transition: none;
+        opacity: 0
+    }
+
+    .mat-button:hover .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-fab {
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        min-width: 0;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        flex-shrink: 0
+    }
+
+    .mat-fab:not([disabled]):active {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab .mat-icon, .mat-fab i {
+        padding: 16px 0;
+        line-height: 24px
+    }
+
+    .mat-mini-fab {
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        min-width: 0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        flex-shrink: 0
+    }
+
+    .mat-mini-fab:not([disabled]):active {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+    }
+
+    .mat-mini-fab .mat-icon, .mat-mini-fab i {
+        padding: 8px 0;
+        line-height: 24px
+    }
+
+    .mat-icon-button {
+        padding: 0;
+        min-width: 0;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        line-height: 40px;
+        border-radius: 50%
+    }
+
+    .mat-icon-button .mat-icon, .mat-icon-button i {
+        line-height: 24px
+    }
+
+    .mat-button, .mat-icon-button, .mat-raised-button {
+        color: currentColor
+    }
+
+    .mat-button .mat-button-wrapper > *, .mat-icon-button .mat-button-wrapper > *, .mat-raised-button .mat-button-wrapper > * {
+        vertical-align: middle
+    }
+
+    .mat-button-focus-overlay, .mat-button-ripple {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none
+    }
+
+    .mat-button-focus-overlay {
+        background-color: rgba(0, 0, 0, .12);
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity .2s cubic-bezier(.35, 0, .25, 1), background-color .2s cubic-bezier(.35, 0, .25, 1)
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-button-focus-overlay {
+            background-color: rgba(255, 255, 255, .5)
+        }
+    }
+
+    .mat-button-ripple-round {
+        border-radius: 50%;
+        z-index: 1
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+            outline: solid 1px
+        }
+    }</style>
+    <style>.mat-icon {
+        background-repeat: no-repeat;
+        display: inline-block;
+        fill: currentColor;
+        height: 24px;
+        width: 24px
+    }</style>
+    <style>.mat-sidenav-container {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+        overflow: hidden
+    }
+
+    .mat-sidenav-container[fullscreen] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0
+    }
+
+    .mat-sidenav-container[fullscreen].mat-sidenav-opened {
+        overflow: hidden
+    }
+
+    .mat-sidenav-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        z-index: 2;
+        visibility: hidden
+    }
+
+    .mat-sidenav-backdrop.mat-sidenav-shown {
+        visibility: visible
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-sidenav-backdrop {
+            opacity: .5
+        }
+    }
+
+    .mat-sidenav-content {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+        display: block;
+        height: 100%;
+        overflow: auto
+    }
+
+    .mat-sidenav {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+        min-width: 5vw;
+        outline: 0;
+        box-sizing: border-box;
+        height: 100%;
+        overflow-y: auto;
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    .mat-sidenav.mat-sidenav-closed {
+        visibility: hidden
+    }
+
+    .mat-sidenav.mat-sidenav-opened, .mat-sidenav.mat-sidenav-opening {
+        transform: translate3d(0, 0, 0)
+    }
+
+    .mat-sidenav.mat-sidenav-side {
+        z-index: 1
+    }
+
+    .mat-sidenav.mat-sidenav-end {
+        right: 0;
+        transform: translate3d(100%, 0, 0)
+    }
+
+    .mat-sidenav.mat-sidenav-end.mat-sidenav-closed {
+        visibility: hidden
+    }
+
+    .mat-sidenav.mat-sidenav-end.mat-sidenav-opened, .mat-sidenav.mat-sidenav-end.mat-sidenav-opening {
+        transform: translate3d(0, 0, 0)
+    }
+
+    [dir=rtl] .mat-sidenav {
+        transform: translate3d(100%, 0, 0)
+    }
+
+    [dir=rtl] .mat-sidenav.mat-sidenav-closed {
+        visibility: hidden
+    }
+
+    [dir=rtl] .mat-sidenav.mat-sidenav-opened, [dir=rtl] .mat-sidenav.mat-sidenav-opening {
+        transform: translate3d(0, 0, 0)
+    }
+
+    [dir=rtl] .mat-sidenav.mat-sidenav-end {
+        left: 0;
+        right: auto;
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    [dir=rtl] .mat-sidenav.mat-sidenav-end.mat-sidenav-closed {
+        visibility: hidden
+    }
+
+    [dir=rtl] .mat-sidenav.mat-sidenav-end.mat-sidenav-opened, [dir=rtl] .mat-sidenav.mat-sidenav-end.mat-sidenav-opening {
+        transform: translate3d(0, 0, 0)
+    }
+
+    .mat-sidenav.mat-sidenav-opened:not(.mat-sidenav-side), .mat-sidenav.mat-sidenav-opening:not(.mat-sidenav-side) {
+        box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12)
+    }</style>
+    <style>.mat-sidenav-transition .mat-sidenav {
+        transition: transform .4s cubic-bezier(.25, .8, .25, 1)
+    }
+
+    .mat-sidenav-transition .mat-sidenav-content {
+        transition-duration: .4s;
+        transition-timing-function: cubic-bezier(.25, .8, .25, 1);
+        transition-property: transform, margin-left, margin-right
+    }
+
+    .mat-sidenav-transition .mat-sidenav-backdrop.mat-sidenav-shown {
+        transition: background-color .4s cubic-bezier(.25, .8, .25, 1)
+    }</style>
+</head>
+<body>
+<aio-shell ng-version="5.0.0-beta.3" class="mode-stable sidenav-closed page-home folder-home view-">
+    <div id="top-of-page"></div>
+
+    <!---->
+
+    <md-toolbar class="app-toolbar mat-toolbar mat-primary" color="primary" role="toolbar">
+        <div class="mat-toolbar-layout">
+            <md-toolbar-row class="mat-toolbar-row">
+                <button class="hamburger mat-button" md-button="" title="Docs menu"><span class="mat-button-wrapper">
+    <md-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                focusable="false" viewBox="0 0 24 24"><path
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></md-icon>
+  </span>
+                    <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
+                    <div class="mat-button-focus-overlay"></div>
+                </button>
+                <a class="nav-link home" href="/"><img alt="Home" title="Home"
+                                                       src="assets/images/logos/angular/logo-nav@2x.png"></a>
+                <!---->
+                <aio-top-menu>
+                    <ul role="navigation">
+                        <!---->
+                        <li><a class="nav-link" href="features" title="Features">Features</a></li>
+                        <li><a class="nav-link" href="docs" title="Docs">Docs</a></li>
+                        <li><a class="nav-link" href="resources" title="Resources">Resources</a></li>
+                        <li><a class="nav-link" href="events" title="Events">Events</a></li>
+                        <li><a class="nav-link" href="https://blog.angular.io/" title="Blog">Blog</a></li>
+                    </ul>
+                </aio-top-menu>
+                <aio-search-box class="search-container"><input aria-label="search" placeholder="Search" type="search">
+                </aio-search-box>
+            </md-toolbar-row>
+        </div>
+    </md-toolbar>
+    <!---->
+
+    <md-sidenav-container class="sidenav-container mat-sidenav-container mat-sidenav-transition" role="main">
+        <div class="mat-sidenav-backdrop"></div>
+        <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+        <md-sidenav class="sidenav mat-sidenav mat-sidenav-closed mat-sidenav-side" tabindex="-1">
+            <!---->
+            <aio-nav-menu>
+                <!---->
+                <aio-nav-item><!---->
+                    <div>
+                        <a class="vertical-menu-item level-1 collapsed" href="guide/quickstart"
+                           title="A gentle introduction to Angular.">
+                            Getting Started
+                        </a>
+                    </div>
+
+                    <!---->
+                </aio-nav-item>
+                <aio-nav-item><!---->
+
+                    <!---->
+                    <div>
+                        <!---->
+
+                        <!---->
+                        <button class="vertical-menu-item heading level-1 collapsed" type="button"
+                                title="The Tour of Heroes tutorial takes you through the steps of creating an Angular application in TypeScript."
+                                aria-pressed="false">
+                            Tutorial
+                            <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right"
+                                     aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
+                                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                </svg>
+                            </md-icon>
+                        </button>
+
+                        <div class="heading-children level-1 collapsed">
+                            <!---->
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial"
+                                       title="Part 1: Introduction to the Tour of Heroes tutorial">
+                                        1. Introduction
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt1"
+                                       title="Part 2: Build a simple hero editor">
+                                        2. The Hero Editor
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt2"
+                                       title="Part 3: Build a master/detail page with a list of heroes.">
+                                        3. Master/Detail
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt3"
+                                       title="Part 4: Refactor the master/detail view into separate components.">
+                                        4. Multiple Components
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt4"
+                                       title="Part 5: Create a reusable service to manage hero data.">
+                                        5. Services
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt5"
+                                       title="Part 6: Add the Angular router and navigate among the views.">
+                                        6. Routing
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt6"
+                                       title="Part 7: Use HTTP to retrieve and save hero data.">
+                                        7. HTTP
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                        </div>
+                    </div>
+                </aio-nav-item>
+                <aio-nav-item><!---->
+
+                    <!---->
+                    <div>
+                        <!---->
+
+                        <!---->
+                        <button class="vertical-menu-item heading level-1 collapsed" type="button"
+                                title="The fundamentals of Angular" aria-pressed="false">
+                            Fundamentals
+                            <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right"
+                                     aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
+                                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                </svg>
+                            </md-icon>
+                        </button>
+
+                        <div class="heading-children level-1 collapsed">
+                            <!---->
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/architecture"
+                                       title="The basic building blocks of Angular applications.">
+                                        Architecture
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+
+                                <!---->
+                                <div>
+                                    <!---->
+
+                                    <!---->
+                                    <button class="vertical-menu-item heading level-2 collapsed" type="button"
+                                            title="Template &amp; Data Binding" aria-pressed="false">
+                                        Template &amp; Data Binding
+                                        <md-icon class="rotating-icon mat-icon" role="img"
+                                                 svgicon="keyboard_arrow_right" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                            </svg>
+                                        </md-icon>
+                                    </button>
+
+                                    <div class="heading-children level-2 collapsed">
+                                        <!---->
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/displaying-data"
+                                                   title="Property binding helps show app data in the UI.">
+                                                    Displaying Data
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/template-syntax"
+                                                   title="Learn how to write templates that display data and consume user events with the help of data binding.">
+                                                    Template Syntax
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/lifecycle-hooks"
+                                                   title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">
+                                                    Lifecycle Hooks
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/component-interaction"
+                                                   title="Share information between different directives and components.">
+                                                    Component Interaction
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/component-styles"
+                                                   title="Add CSS styles that are specific to a component.">
+                                                    Component Styles
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/dynamic-component-loader"
+                                                   title="Load components dynamically.">
+                                                    Dynamic Components
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/attribute-directives"
+                                                   title="Attribute directives attach behavior to elements.">
+                                                    Attribute Directives
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/structural-directives"
+                                                   title="Structural directives manipulate the layout of the page.">
+                                                    Structural Directives
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/pipes"
+                                                   title="Pipes transform displayed values within a template.">
+                                                    Pipes
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/animations"
+                                                   title="A guide to Angular's animation system.">
+                                                    Animations
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                    </div>
+                                </div>
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+
+                                <!---->
+                                <div>
+                                    <!---->
+
+                                    <!---->
+                                    <button class="vertical-menu-item heading level-2 collapsed" type="button"
+                                            title="Angular Forms" aria-pressed="false">
+                                        Forms
+                                        <md-icon class="rotating-icon mat-icon" role="img"
+                                                 svgicon="keyboard_arrow_right" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                            </svg>
+                                        </md-icon>
+                                    </button>
+
+                                    <div class="heading-children level-2 collapsed">
+                                        <!---->
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/user-input"
+                                                   title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">
+                                                    User Input
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/forms"
+                                                   title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">
+                                                    Template-driven Forms
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/form-validation" title="Validate user's form entries.">
+                                                    Form Validation
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/reactive-forms"
+                                                   title="Create a reactive form using FormBuilder, groups, and arrays.">
+                                                    Reactive Forms
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/dynamic-form"
+                                                   title="Render dynamic forms with FormGroup.">
+                                                    Dynamic forms
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                    </div>
+                                </div>
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/bootstrapping"
+                                       title="Tell Angular how to construct and bootstrap the app in the root &quot;AppModule&quot;.">
+                                        Bootstrapping
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+
+                                <!---->
+                                <div>
+                                    <!---->
+
+                                    <!---->
+                                    <button class="vertical-menu-item heading level-2 collapsed" type="button"
+                                            title="Learn how to use NgModules to make your apps efficient."
+                                            aria-pressed="false">
+                                        NgModules
+                                        <md-icon class="rotating-icon mat-icon" role="img"
+                                                 svgicon="keyboard_arrow_right" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                            </svg>
+                                        </md-icon>
+                                    </button>
+
+                                    <div class="heading-children level-2 collapsed">
+                                        <!---->
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/ngmodule"
+                                                   title="Define application modules with @NgModule.">
+                                                    NgModules
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/ngmodule-faq"
+                                                   title="Answers to frequently asked questions about @NgModule.">
+                                                    NgModule FAQs
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                    </div>
+                                </div>
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+
+                                <!---->
+                                <div>
+                                    <!---->
+
+                                    <!---->
+                                    <button class="vertical-menu-item heading level-2 collapsed" type="button"
+                                            title="Dependency Injection: creating and injecting services"
+                                            aria-pressed="false">
+                                        Dependency Injection
+                                        <md-icon class="rotating-icon mat-icon" role="img"
+                                                 svgicon="keyboard_arrow_right" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                            </svg>
+                                        </md-icon>
+                                    </button>
+
+                                    <div class="heading-children level-2 collapsed">
+                                        <!---->
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/dependency-injection"
+                                                   title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">
+                                                    Dependency Injection
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/hierarchical-dependency-injection"
+                                                   title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">
+                                                    Hierarchical Injectors
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/dependency-injection-in-action"
+                                                   title="Techniques for Dependency Injection.">
+                                                    DI in Action
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                    </div>
+                                </div>
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/http"
+                                       title="Use HTTP to talk to a remote server.">
+                                        HttpClient
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/router"
+                                       title="Discover the basics of screen navigation with the Angular Router.">
+                                        Routing &amp; Navigation
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/testing"
+                                       title="Techniques and practices for testing an Angular app.">
+                                        Testing
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/cheatsheet"
+                                       title="A quick guide to common Angular coding techniques.">
+                                        Cheat Sheet
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                        </div>
+                    </div>
+                </aio-nav-item>
+                <aio-nav-item><!---->
+
+                    <!---->
+                    <div>
+                        <!---->
+
+                        <!---->
+                        <button class="vertical-menu-item heading level-1 collapsed" type="button"
+                                title="Techniques for putting Angular to work in your environment" aria-pressed="false">
+                            Techniques
+                            <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right"
+                                     aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
+                                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                </svg>
+                            </md-icon>
+                        </button>
+
+                        <div class="heading-children level-1 collapsed">
+                            <!---->
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/i18n"
+                                       title="Translate the app's template text into multiple languages.">
+                                        Internationalization (i18n)
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/security"
+                                       title="Developing for content security in Angular applications.">
+                                        Security
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+
+                                <!---->
+                                <div>
+                                    <!---->
+
+                                    <!---->
+                                    <button class="vertical-menu-item heading level-2 collapsed" type="button"
+                                            title="Setup and Deployment" aria-pressed="false">
+                                        Setup &amp; Deployment
+                                        <md-icon class="rotating-icon mat-icon" role="img"
+                                                 svgicon="keyboard_arrow_right" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                            </svg>
+                                        </md-icon>
+                                    </button>
+
+                                    <div class="heading-children level-2 collapsed">
+                                        <!---->
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/setup"
+                                                   title="Install the Angular QuickStart seed for faster, more efficient development on your machine.">
+                                                    Setup for local development
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/setup-systemjs-anatomy"
+                                                   title="Inside the local development environment for SystemJS.">
+                                                    Anatomy of the Setup
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/browser-support"
+                                                   title="Browser support and polyfills guide.">
+                                                    Browser Support
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/npm-packages"
+                                                   title="Recommended npm packages, and how to specify package dependencies.">
+                                                    Npm Packages
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/typescript-configuration"
+                                                   title="TypeScript configuration for Angular developers.">
+                                                    TypeScript Configuration
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/aot-compiler"
+                                                   title="Learn why and how to use the Ahead-of-Time (AOT) compiler.">
+                                                    Ahead-of-Time Compilation
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/metadata"
+                                                   title="How Angular handles metadata with AOT.">
+                                                    Metadata and AOT
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/deployment"
+                                                   title="Learn how to deploy your Angular app.">
+                                                    Deployment
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                    </div>
+                                </div>
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+
+                                <!---->
+                                <div>
+                                    <!---->
+
+                                    <!---->
+                                    <button class="vertical-menu-item heading level-2 collapsed" type="button"
+                                            title="Incrementally upgrade an AngularJS application to Angular."
+                                            aria-pressed="false">
+                                        Upgrading
+                                        <md-icon class="rotating-icon mat-icon" role="img"
+                                                 svgicon="keyboard_arrow_right" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                                            </svg>
+                                        </md-icon>
+                                    </button>
+
+                                    <div class="heading-children level-2 collapsed">
+                                        <!---->
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed" href="guide/upgrade"
+                                                   title="Incrementally upgrade an AngularJS application to Angular.">
+                                                    Upgrading from AngularJS
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                        <aio-nav-item><!---->
+                                            <div>
+                                                <a class="vertical-menu-item level-3 collapsed"
+                                                   href="guide/ajs-quick-reference"
+                                                   title="Learn how AngularJS concepts and techniques map to Angular.">
+                                                    Upgrade Cheatsheet
+                                                </a>
+                                            </div>
+
+                                            <!---->
+                                        </aio-nav-item>
+                                    </div>
+                                </div>
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/visual-studio-2015"
+                                       title="Use Visual Studio 2015 with the QuickStart files.">
+                                        Visual Studio 2015 QuickStart
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/styleguide"
+                                       title="Write Angular with style.">
+                                        Style Guide
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                            <aio-nav-item><!---->
+                                <div>
+                                    <a class="vertical-menu-item level-2 collapsed" href="guide/glossary"
+                                       title="Brief definitions of the most important words in the Angular vocabulary.">
+                                        Glossary
+                                    </a>
+                                </div>
+
+                                <!---->
+                            </aio-nav-item>
+                        </div>
+                    </div>
+                </aio-nav-item>
+                <aio-nav-item><!---->
+                    <div>
+                        <a class="vertical-menu-item level-1 collapsed" href="api"
+                           title="Details of the Angular classes and values.">
+                            API
+                        </a>
+                    </div>
+
+                    <!---->
+                </aio-nav-item>
+            </aio-nav-menu>
+
+            <div class="doc-version">
+                <aio-select>
+                    <div class="form-select-menu">
+                        <button class="form-select-button">
+                            <strong></strong><!---->stable (v4.4.4)
+                        </button>
+                        <!---->
+                    </div>
+                </aio-select>
+            </div>
+        </md-sidenav>
+        <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+        <div cdk-scrollable="" class="mat-sidenav-content"
+             style="margin-left: 0px; margin-right: 0px; transform: translate3d(0px, 0px, 0px);">
+
+
+            <section class="sidenav-content" role="content" id="home">
+                <aio-mode-banner>
+                    <!---->
+                </aio-mode-banner>
+                <aio-doc-viewer>
+                    <div class="content">
+                        <!--FULL HEADER BLOCK-->
+                        <header>
+                            <!--BACKGROUND IMAGE-->
+                            <div class="background-sky hero"></div>
+                            <!--INTRO SECTION -->
+                            <section id="intro">
+                                <!-- LOGO -->
+                                <div class="hero-logo">
+                                    <img src="assets/images/logos/angular/angular.svg" width="250" height="250">
+                                </div>
+                                <!-- CONTAINER     -->
+                                <div class="homepage-container">
+                                    <!-- container content starts -->
+                                    <div class="hero-headline no-toc">One framework.<br>Mobile &amp; desktop.</div>
+                                    <a class="button hero-cta" href="guide/quickstart">Get Started</a>
+                                </div><!-- CONTAINER END -->
+                            </section>
+                        </header>
+                        <article>
+                            <div class="home-rows">
+                                <!--Announcement Bar-->
+                                <div class="homepage-container">
+                                    <div class="announcement-bar">
+                                        <img src="generated/images/marketing/home/angular-connect.png" width="104"
+                                             height="60">
+                                        <p>Join us in London for AngularConnect<br>November 7-8, 2017</p>
+                                        <a class="button" href="https://angularconnect.com/">Learn More</a>
+                                    </div>
+                                </div>
+                                <!-- Group 1-->
+                                <div layout="row" layout-xs="column" class="home-row homepage-container">
+                                    <div class="promo-img-container promo-1">
+                                        <div>
+                                            <img height="222" width="340"
+                                                 src="generated/images/marketing/home/responsive-framework.svg"
+                                                 alt="responsive framework">
+                                        </div>
+                                    </div>
+                                    <div class="text-container">
+                                        <div class="text-block promo-1-desc l-pad-top-2">
+                                            <div class="text-headline">Develop Across All Platforms</div>
+                                            <p class="text-body">Learn one way to build applications with Angular and
+                                                reuse your code and abilities to build apps for any deployment target.
+                                                For web, mobile web, native mobile and native desktop.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Group 2-->
+                                <div layout="row" layout-xs="column" class="home-row">
+                                    <div class="text-container">
+                                        <div class="text-block">
+                                            <div class="text-headline">Speed &amp; Performance</div>
+                                            <p class="text-body">Achieve the maximum speed possible on the Web Platform
+                                                today, and take it further, via Web Workers and server-side
+                                                rendering.</p>
+                                            <p class="text-body">Angular puts you in control over scalability. Meet huge
+                                                data requirements by building data models on RxJS, Immutable.js or
+                                                another push-model.</p>
+                                        </div>
+                                    </div>
+                                    <div class="promo-img-container promo-2">
+                                        <div>
+                                            <img height="222" width="323"
+                                                 src="generated/images/marketing/home/speed-performance.svg"
+                                                 alt="speed and performance">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Group 3-->
+                                <div layout="row" layout-xs="column" class="home-row">
+                                    <div class="promo-img-container promo-3">
+                                        <div><img src="generated/images/marketing/home/joyful-development.svg"
+                                                  alt="IDE example" width="474" height="263"></div>
+                                    </div>
+                                    <div class="text-container">
+                                        <div class="text-block promo-3-desc">
+                                            <div class="text-headline">Incredible Tooling</div>
+                                            <p class="text-body">Build features quickly with simple, declarative
+                                                templates. Extend the template language with your own components and use
+                                                a wide array of existing components. Get immediate Angular-specific help
+                                                and feedback with nearly every IDE and editor. All this comes together
+                                                so you can focus on building amazing apps rather than trying to make the
+                                                code work.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Group 4-->
+                                <div layout="row" layout-xs="column" class="home-row">
+                                    <div class="text-container">
+                                        <div class="text-block l-pad-top-2">
+                                            <div class="text-headline">Loved by Millions</div>
+                                            <p class="text-body">From prototype through global deployment, Angular
+                                                delivers the productivity and scalable infrastructure that supports
+                                                Google's largest applications.</p>
+                                        </div>
+                                    </div>
+                                    <div class="promo-img-container promo-4">
+                                        <div>
+                                            <img src="generated/images/marketing/home/loved-by-millions.svg"
+                                                 alt="angular on the map" width="455" height="228">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- CTA CARDS -->
+                                <div layout="row" layout-xs="column" class="home-row">
+                                    <a href="guide/quickstart">
+                                        <div class="card">
+                                            <img src="generated/images/marketing/home/code-icon.svg" height="70px">
+                                            <div class="card-text-container">
+                                                <div class="text-headline">Get Started</div>
+                                                <p>Start building your Angular application.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> <!-- end of home rows -->
+                        </article>
+
+                    </div>
+                    <!-- links to this doc:
+                    -->
+                    <!-- links from this doc:
+                     - guide/quickstart
+                     - https://angularconnect.com/
+                    --></aio-doc-viewer>
+                <aio-dt>
+                    <!---->
+                </aio-dt>
+            </section>
+
+        </div>
+    </md-sidenav-container>
+
+    <!---->
+
+    <footer>
+        <aio-footer>
+            <div class="grid-fluid">
+                <!---->
+                <div class="footer-block">
+                    <h3>Resources</h3>
+                    <ul>
+                        <!---->
+                        <li>
+                            <a class="link" href="about" title="Angular contributors.">About</a>
+                        </li>
+                        <li>
+                            <a class="link" href="resources"
+                               title="Angular tools, training, and blogs from around the web.">Resource Listing</a>
+                        </li>
+                        <li>
+                            <a class="link" href="presskit" title="Press contacts, logos, and branding.">Press Kit</a>
+                        </li>
+                        <li>
+                            <a class="link" href="https://blog.angular.io/" title="Angular Blog">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-block">
+                    <h3>Help</h3>
+                    <ul>
+                        <!---->
+                        <li>
+                            <a class="link" href="https://stackoverflow.com/questions/tagged/angular"
+                               title="Stack Overflow: where the community answers your technical Angular questions.">Stack
+                                Overflow</a>
+                        </li>
+                        <li>
+                            <a class="link" href="https://gitter.im/angular/angular"
+                               title="Chat about Angular with other birds of a feather.">Gitter</a>
+                        </li>
+                        <li>
+                            <a class="link" href="https://github.com/angular/angular/issues"
+                               title="Post issues and suggestions on github.">Report Issues</a>
+                        </li>
+                        <li>
+                            <a class="link"
+                               href="https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md"
+                               title="Treating each other with respect.">Code of Conduct</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-block">
+                    <h3>Community</h3>
+                    <ul>
+                        <!---->
+                        <li>
+                            <a class="link" href="events" title="Post issues and suggestions on github.">Events</a>
+                        </li>
+                        <li>
+                            <a class="link" href="http://www.meetup.com/topics/angularjs/"
+                               title="Attend a meetup and learn from fellow developers.">Meetups</a>
+                        </li>
+                        <li>
+                            <a class="link" href="https://twitter.com/angular" title="Twitter">Twitter</a>
+                        </li>
+                        <li>
+                            <a class="link" href="https://github.com/angular/angular" title="GitHub">GitHub</a>
+                        </li>
+                        <li>
+                            <a class="link" href="contribute" title="Contribute to Angular">Contribute</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-block">
+                    <h3>Languages</h3>
+                    <ul>
+                        <!---->
+                        <li>
+                            <a class="link" href="https://angular.cn/" title="中文版">中文版</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>
+                Powered by Google ©2010-2017.
+                Code licensed under an <a href="license" title="License text">MIT-style License</a>.
+                Documentation licensed under
+                <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            <p>
+                Version 4.4.5-build.35726+sha.f27f6e4.
+            </p>
+
+        </aio-footer>
+    </footer>
+
+</aio-shell>
+<noscript>&lt;div class="background-sky hero"&gt;&lt;/div&gt;&lt;section id="intro"&gt;&lt;div class="hero-logo"&gt;&lt;img
+    src="assets/images/logos/angular/angular.svg" width="250" height="250"&gt;&lt;/div&gt;&lt;div
+    class="homepage-container"&gt;&lt;div class="hero-headline"&gt;One framework.&lt;br&gt;Mobile &amp;amp; desktop.&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;h2
+    style="color: red; text-align: center; margin-top: -50px"&gt;&lt;b&gt;&lt;i&gt;This website requires JavaScript.&lt;/i&gt;&lt;/b&gt;&lt;/h2&gt;
+</noscript>
+<script type="text/javascript" src="inline.1f5498d66cb81e3e35d5.bundle.js"></script>
+<script type="text/javascript" src="polyfills.965a9a5ad3e11b17f85e.bundle.js"></script>
+<script type="text/javascript" src="main.2636b8d2683b1409c078.bundle.js"></script>
+</body>
