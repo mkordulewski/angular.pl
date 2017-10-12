@@ -110,6 +110,10 @@
         cursor: default
     }
 
+    .mat-button {
+        cursor: default;
+    }
+
     .cdk-keyboard-focused.mat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay {
         opacity: 1
     }
@@ -381,14 +385,8 @@
     <md-toolbar class="app-toolbar mat-toolbar mat-primary" color="primary" role="toolbar">
         <div class="mat-toolbar-layout">
             <md-toolbar-row class="mat-toolbar-row">
-                <button class="hamburger mat-button" md-button="" title="Docs menu"><span class="mat-button-wrapper">
-    <md-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                                                                                focusable="false" viewBox="0 0 24 24"><path
-            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></md-icon>
-  </span>
-                    <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
-                    <div class="mat-button-focus-overlay"></div>
-                </button>
+                <div class="hamburger mat-button">
+                </div>
                 <a class="nav-link home" href="https://angular.io/"><img alt="Home" title="Home"
                                                        src="assets/images/logos/angular/logo-nav@2x.png"></a>
                 <aio-top-menu>
