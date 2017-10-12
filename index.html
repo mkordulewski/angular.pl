@@ -10,13 +10,12 @@
     <link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png">
-    <!-- NOTE: These need to be kept in sync with `ngsw-manifest.json`. -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><!-- -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <meta name="theme-color" content="#1976d2">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="translucent"><!-- Google Analytics -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
     <script>window.ga = window.ga || function () {
             (ga.q = ga.q || []).push(arguments)
         };
@@ -379,8 +378,6 @@
 <aio-shell ng-version="5.0.0-beta.3" class="mode-stable sidenav-closed page-home folder-home view-">
     <div id="top-of-page"></div>
 
-    <!---->
-
     <md-toolbar class="app-toolbar mat-toolbar mat-primary" color="primary" role="toolbar">
         <div class="mat-toolbar-layout">
             <md-toolbar-row class="mat-toolbar-row">
@@ -394,10 +391,8 @@
                 </button>
                 <a class="nav-link home" href="https://angular.io/"><img alt="Home" title="Home"
                                                        src="assets/images/logos/angular/logo-nav@2x.png"></a>
-                <!---->
                 <aio-top-menu>
                     <ul role="navigation">
-                        <!---->
                         <li><a class="nav-link" href="https://angular.io/features" title="Features">Features</a></li>
                         <li><a class="nav-link" href="https://angular.io/docs" title="Docs">Docs</a></li>
                         <li><a class="nav-link" href="https://angular.io/resources" title="Resources">Resources</a></li>
@@ -410,32 +405,22 @@
             </md-toolbar-row>
         </div>
     </md-toolbar>
-    <!---->
 
     <md-sidenav-container class="sidenav-container mat-sidenav-container mat-sidenav-transition" role="main">
         <div class="mat-sidenav-backdrop"></div>
         <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
         <md-sidenav class="sidenav mat-sidenav mat-sidenav-closed mat-sidenav-side" tabindex="-1">
-            <!---->
             <aio-nav-menu>
-                <!---->
-                <aio-nav-item><!---->
+                <aio-nav-item>
                     <div>
                         <a class="vertical-menu-item level-1 collapsed" href="https://angular.io/guide/quickstart"
                            title="A gentle introduction to Angular.">
                             Getting Started
                         </a>
                     </div>
-
-                    <!---->
                 </aio-nav-item>
-                <aio-nav-item><!---->
-
-                    <!---->
+                <aio-nav-item>
                     <div>
-                        <!---->
-
-                        <!---->
                         <button class="vertical-menu-item heading level-1 collapsed" type="button"
                                 title="The Tour of Heroes tutorial takes you through the steps of creating an Angular application in TypeScript."
                                 aria-pressed="false">
@@ -449,87 +434,67 @@
                         </button>
 
                         <div class="heading-children level-1 collapsed">
-                            <!---->
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial"
                                        title="Part 1: Introduction to the Tour of Heroes tutorial">
                                         1. Introduction
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt1"
                                        title="Part 2: Build a simple hero editor">
                                         2. The Hero Editor
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt2"
                                        title="Part 3: Build a master/detail page with a list of heroes.">
                                         3. Master/Detail
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt3"
                                        title="Part 4: Refactor the master/detail view into separate components.">
                                         4. Multiple Components
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt4"
                                        title="Part 5: Create a reusable service to manage hero data.">
                                         5. Services
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt5"
                                        title="Part 6: Add the Angular router and navigate among the views.">
                                         6. Routing
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="tutorial/toh-pt6"
                                        title="Part 7: Use HTTP to retrieve and save hero data.">
                                         7. HTTP
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
                         </div>
                     </div>
                 </aio-nav-item>
-                <aio-nav-item><!---->
-
-                    <!---->
+                <aio-nav-item>
                     <div>
-                        <!---->
-
-                        <!---->
                         <button class="vertical-menu-item heading level-1 collapsed" type="button"
                                 title="The fundamentals of Angular" aria-pressed="false">
                             Fundamentals
@@ -542,24 +507,16 @@
                         </button>
 
                         <div class="heading-children level-1 collapsed">
-                            <!---->
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/architecture"
                                        title="The basic building blocks of Angular applications.">
                                         Architecture
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
-
-                                <!---->
+                            <aio-nav-item>
                                 <div>
-                                    <!---->
-
-                                    <!---->
                                     <button class="vertical-menu-item heading level-2 collapsed" type="button"
                                             title="Template &amp; Data Binding" aria-pressed="false">
                                         Template &amp; Data Binding
@@ -573,8 +530,7 @@
                                     </button>
 
                                     <div class="heading-children level-2 collapsed">
-                                        <!---->
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/displaying-data"
@@ -582,10 +538,8 @@
                                                     Displaying Data
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/template-syntax"
@@ -593,10 +547,8 @@
                                                     Template Syntax
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/lifecycle-hooks"
@@ -604,10 +556,8 @@
                                                     Lifecycle Hooks
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/component-interaction"
@@ -615,10 +565,8 @@
                                                     Component Interaction
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/component-styles"
@@ -626,10 +574,8 @@
                                                     Component Styles
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/dynamic-component-loader"
@@ -637,10 +583,8 @@
                                                     Dynamic Components
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/attribute-directives"
@@ -648,10 +592,8 @@
                                                     Attribute Directives
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/structural-directives"
@@ -659,39 +601,28 @@
                                                     Structural Directives
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/pipes"
                                                    title="Pipes transform displayed values within a template.">
                                                     Pipes
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/animations"
                                                    title="A guide to Angular's animation system.">
                                                     Animations
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
                                     </div>
                                 </div>
                             </aio-nav-item>
-                            <aio-nav-item><!---->
-
-                                <!---->
+                            <aio-nav-item>
                                 <div>
-                                    <!---->
-
-                                    <!---->
                                     <button class="vertical-menu-item heading level-2 collapsed" type="button"
                                             title="Angular Forms" aria-pressed="false">
                                         Forms
@@ -705,38 +636,31 @@
                                     </button>
 
                                     <div class="heading-children level-2 collapsed">
-                                        <!---->
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/user-input"
                                                    title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">
                                                     User Input
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/forms"
                                                    title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">
                                                     Template-driven Forms
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/form-validation" title="Validate user's form entries.">
                                                     Form Validation
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/reactive-forms"
@@ -744,10 +668,8 @@
                                                     Reactive Forms
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/dynamic-form"
@@ -755,29 +677,20 @@
                                                     Dynamic forms
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
                                     </div>
                                 </div>
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/bootstrapping"
                                        title="Tell Angular how to construct and bootstrap the app in the root &quot;AppModule&quot;.">
                                         Bootstrapping
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
-
-                                <!---->
+                            <aio-nav-item>
                                 <div>
-                                    <!---->
-
-                                    <!---->
                                     <button class="vertical-menu-item heading level-2 collapsed" type="button"
                                             title="Learn how to use NgModules to make your apps efficient."
                                             aria-pressed="false">
@@ -792,18 +705,15 @@
                                     </button>
 
                                     <div class="heading-children level-2 collapsed">
-                                        <!---->
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/ngmodule"
                                                    title="Define application modules with @NgModule.">
                                                     NgModules
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/ngmodule-faq"
@@ -811,19 +721,12 @@
                                                     NgModule FAQs
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
                                     </div>
                                 </div>
                             </aio-nav-item>
-                            <aio-nav-item><!---->
-
-                                <!---->
+                            <aio-nav-item>
                                 <div>
-                                    <!---->
-
-                                    <!---->
                                     <button class="vertical-menu-item heading level-2 collapsed" type="button"
                                             title="Dependency Injection: creating and injecting services"
                                             aria-pressed="false">
@@ -838,8 +741,7 @@
                                     </button>
 
                                     <div class="heading-children level-2 collapsed">
-                                        <!---->
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/dependency-injection"
@@ -847,10 +749,8 @@
                                                     Dependency Injection
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/hierarchical-dependency-injection"
@@ -858,10 +758,8 @@
                                                     Hierarchical Injectors
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/dependency-injection-in-action"
@@ -869,62 +767,47 @@
                                                     DI in Action
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
                                     </div>
                                 </div>
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/http"
                                        title="Use HTTP to talk to a remote server.">
                                         HttpClient
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/router"
                                        title="Discover the basics of screen navigation with the Angular Router.">
                                         Routing &amp; Navigation
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/testing"
                                        title="Techniques and practices for testing an Angular app.">
                                         Testing
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/cheatsheet"
                                        title="A quick guide to common Angular coding techniques.">
                                         Cheat Sheet
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
                         </div>
                     </div>
                 </aio-nav-item>
-                <aio-nav-item><!---->
-
-                    <!---->
+                <aio-nav-item>
                     <div>
-                        <!---->
-
-                        <!---->
                         <button class="vertical-menu-item heading level-1 collapsed" type="button"
                                 title="Techniques for putting Angular to work in your environment" aria-pressed="false">
                             Techniques
@@ -937,34 +820,24 @@
                         </button>
 
                         <div class="heading-children level-1 collapsed">
-                            <!---->
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/i18n"
                                        title="Translate the app's template text into multiple languages.">
                                         Internationalization (i18n)
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/security"
                                        title="Developing for content security in Angular applications.">
                                         Security
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
-
-                                <!---->
+                            <aio-nav-item>
                                 <div>
-                                    <!---->
-
-                                    <!---->
                                     <button class="vertical-menu-item heading level-2 collapsed" type="button"
                                             title="Setup and Deployment" aria-pressed="false">
                                         Setup &amp; Deployment
@@ -978,18 +851,15 @@
                                     </button>
 
                                     <div class="heading-children level-2 collapsed">
-                                        <!---->
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/setup"
                                                    title="Install the Angular QuickStart seed for faster, more efficient development on your machine.">
                                                     Setup for local development
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/setup-systemjs-anatomy"
@@ -997,10 +867,8 @@
                                                     Anatomy of the Setup
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/browser-support"
@@ -1008,10 +876,8 @@
                                                     Browser Support
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/npm-packages"
@@ -1019,10 +885,8 @@
                                                     Npm Packages
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/typescript-configuration"
@@ -1030,10 +894,8 @@
                                                     TypeScript Configuration
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/aot-compiler"
@@ -1041,39 +903,28 @@
                                                     Ahead-of-Time Compilation
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/metadata"
                                                    title="How Angular handles metadata with AOT.">
                                                     Metadata and AOT
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/deployment"
                                                    title="Learn how to deploy your Angular app.">
                                                     Deployment
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
                                     </div>
                                 </div>
                             </aio-nav-item>
-                            <aio-nav-item><!---->
-
-                                <!---->
+                            <aio-nav-item>
                                 <div>
-                                    <!---->
-
-                                    <!---->
                                     <button class="vertical-menu-item heading level-2 collapsed" type="button"
                                             title="Incrementally upgrade an AngularJS application to Angular."
                                             aria-pressed="false">
@@ -1088,18 +939,15 @@
                                     </button>
 
                                     <div class="heading-children level-2 collapsed">
-                                        <!---->
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed" href="guide/upgrade"
                                                    title="Incrementally upgrade an AngularJS application to Angular.">
                                                     Upgrading from AngularJS
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
-                                        <aio-nav-item><!---->
+                                        <aio-nav-item>
                                             <div>
                                                 <a class="vertical-menu-item level-3 collapsed"
                                                    href="guide/ajs-quick-reference"
@@ -1107,54 +955,44 @@
                                                     Upgrade Cheatsheet
                                                 </a>
                                             </div>
-
-                                            <!---->
                                         </aio-nav-item>
                                     </div>
                                 </div>
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/visual-studio-2015"
                                        title="Use Visual Studio 2015 with the QuickStart files.">
                                         Visual Studio 2015 QuickStart
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/styleguide"
                                        title="Write Angular with style.">
                                         Style Guide
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
-                            <aio-nav-item><!---->
+                            <aio-nav-item>
                                 <div>
                                     <a class="vertical-menu-item level-2 collapsed" href="guide/glossary"
                                        title="Brief definitions of the most important words in the Angular vocabulary.">
                                         Glossary
                                     </a>
                                 </div>
-
-                                <!---->
                             </aio-nav-item>
                         </div>
                     </div>
                 </aio-nav-item>
-                <aio-nav-item><!---->
+                <aio-nav-item>
                     <div>
                         <a class="vertical-menu-item level-1 collapsed" href="api"
                            title="Details of the Angular classes and values.">
                             API
                         </a>
                     </div>
-
-                    <!---->
                 </aio-nav-item>
             </aio-nav-menu>
 
@@ -1162,9 +1000,8 @@
                 <aio-select>
                     <div class="form-select-menu">
                         <button class="form-select-button">
-                            <strong></strong><!---->stable (v4.4.4)
+                            <strong></strong>stable (v4.4.4)
                         </button>
-                        <!---->
                     </div>
                 </aio-select>
             </div>
@@ -1176,7 +1013,6 @@
 
             <section class="sidenav-content" role="content" id="home">
                 <aio-mode-banner>
-                    <!---->
                 </aio-mode-banner>
                 <aio-doc-viewer>
                     <div class="content">
@@ -1302,23 +1138,18 @@
                      - https://angularconnect.com/
                     --></aio-doc-viewer>
                 <aio-dt>
-                    <!---->
                 </aio-dt>
             </section>
 
         </div>
     </md-sidenav-container>
 
-    <!---->
-
     <footer>
         <aio-footer>
             <div class="grid-fluid">
-                <!---->
                 <div class="footer-block">
                     <h3>Resources</h3>
                     <ul>
-                        <!---->
                         <li>
                             <a class="link" href="https://angular.io/about" title="Angular contributors.">About</a>
                         </li>
@@ -1337,7 +1168,6 @@
                 <div class="footer-block">
                     <h3>Help</h3>
                     <ul>
-                        <!---->
                         <li>
                             <a class="link" href="https://stackoverflow.com/questions/tagged/angular"
                                title="Stack Overflow: where the community answers your technical Angular questions.">Stack
@@ -1361,7 +1191,6 @@
                 <div class="footer-block">
                     <h3>Community</h3>
                     <ul>
-                        <!---->
                         <li>
                             <a class="link" href="https://angular.io/events" title="Post issues and suggestions on github.">Events</a>
                         </li>
@@ -1383,7 +1212,6 @@
                 <div class="footer-block">
                     <h3>Languages</h3>
                     <ul>
-                        <!---->
                         <li>
                             <a class="link" href="https://angular.cn/" title="中文版">中文版</a>
                         </li>
