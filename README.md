@@ -2,5 +2,5 @@
 
 * Polish Angular website:
   * http://angular.pl/
-* Redirects to Angular website:
+* Based on main Scala website:
   * https://angular.io/
