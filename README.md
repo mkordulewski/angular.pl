@@ -1,6 +1,6 @@
 # Angular.pl
 
 * Polish Angular website:
-  * http://angular.pl/
+  * https://angular.pl/
 * Based on main Scala website:
   * https://angular.io/
